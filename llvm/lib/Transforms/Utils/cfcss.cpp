@@ -8,12 +8,8 @@
 #include <unordered_map>
 
 using namespace llvm;
-PreservedAnalyses ControlFlowCheck::run(Function &F,
-                                        FunctionAnalysisManager &AM) {
 
-  addControlFlowChecks(F);
-  return PreservedAnalyses::none();
-}
+// Define the function
 void addControlFlowChecks(Function &F) {
   int signatureCounter = 0;
   std::unordered_map<BasicBlock *, int> blockSignatures;
