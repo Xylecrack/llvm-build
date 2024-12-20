@@ -8,8 +8,9 @@ namespace llvm {
 class ControlFlowCheck : public PassInfoMixin<ControlFlowCheck> {
 public:
   PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
+  void addControlFlowChecks(Function &F);
 };
-void addControlFlowChecks(Function &F);
+
 
 } // namespace llvm
 

@@ -2,15 +2,20 @@
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/IRBuilder.h"
-#include "llvm/IR/Module.h"
 #include "llvm/Pass.h"
 #include "llvm/Support/raw_ostream.h"
 #include <unordered_map>
 
 using namespace llvm;
 
-// Define the function
-void addControlFlowChecks(Function &F) {
+PreservedAnalyses ControlFlowCheck::run(Function &F, FunctionAnalysisManager &AM) {
+  // Call the addControlFlowChecks function you have defined earlier
+  errs()<<"Pass has been registered successfully"<<"\n";
+  addControlFlowChecks(F);
+  return PreservedAnalyses::none();  // Return preserved analyses
+}
+
+void ControlFlowCheck::addControlFlowChecks(Function &F) {
   int signatureCounter = 0;
   std::unordered_map<BasicBlock *, int> blockSignatures;
   std::unordered_map<BasicBlock *, int> blockSignaturesDiff;
