@@ -1,0 +1,26 @@
+Printing analysis 'Scalar Evolution Analysis' for function 'main':
+Classifying expressions for: @main
+  %.01 = phi i32 [ 0, %0 ], [ %7, %3 ]
+  -->  {0,+,1,+,3,+,2}<%1> U: full-set S: full-set              Exits: 385              LoopDispositions: { %1: Computable }
+  %.0 = phi i32 [ 0, %0 ], [ %8, %3 ]
+  -->  {0,+,1}<nuw><nsw><%1> U: [0,11) S: [0,11)                Exits: 10               LoopDispositions: { %1: Computable }
+  %4 = add nuw i32 %.0, 2
+  -->  {2,+,1}<nuw><nsw><%1> U: [2,13) S: [2,13)                Exits: 12               LoopDispositions: { %1: Computable }
+  %5 = mul i32 %.0, %4
+  -->  {0,+,3,+,2}<%1> U: full-set S: full-set          Exits: 120              LoopDispositions: { %1: Computable }
+  %6 = add nsw i32 %5, 1
+  -->  {1,+,3,+,2}<%1> U: full-set S: full-set          Exits: 121              LoopDispositions: { %1: Computable }
+  %7 = add nsw i32 %.01, %6
+  -->  {1,+,4,+,5,+,2}<%1> U: full-set S: full-set              Exits: 506              LoopDispositions: { %1: Computable }
+  %8 = add nuw nsw i32 %.0, 1
+  -->  {1,+,1}<nuw><nsw><%1> U: [1,12) S: [1,12)                Exits: 11               LoopDispositions: { %1: Computable }
+  %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.01)
+  -->  %10 U: full-set S: full-set
+Determining loop execution counts for: @main
+Loop %1: backedge-taken count is 10
+Loop %1: constant max backedge-taken count is 10
+Loop %1: symbolic max backedge-taken count is 10
+Loop %1: Predicated backedge-taken count is 10
+ Predicates:
+
+Loop %1: Trip multiple is 11
