@@ -13,14 +13,4 @@ Classifying expressions for: @main
   %7 = add nsw i32 %.01, %6
   -->  {1,+,4,+,5,+,2}<%1> U: full-set S: full-set              Exits: 506              LoopDispositions: { %1: Computable }
   %8 = add nuw nsw i32 %.0, 1
-  -->  {1,+,1}<nuw><nsw><%1> U: [1,12) S: [1,12)                Exits: 11               LoopDispositions: { %1: Computable }
-  %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.01)
-  -->  %10 U: full-set S: full-set
-Determining loop execution counts for: @main
-Loop %1: backedge-taken count is 10
-Loop %1: constant max backedge-taken count is 10
-Loop %1: symbolic max backedge-taken count is 10
-Loop %1: Predicated backedge-taken count is 10
- Predicates:
-
-Loop %1: Trip multiple is 11
+  -->  {1,+,1}<nuw><nsw><%1> U: [1,12) S: [1,12)                Exits: 11  

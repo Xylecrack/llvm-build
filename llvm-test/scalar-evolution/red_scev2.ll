@@ -13,7 +13,7 @@ define dso_local i32 @main() {
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %1
-  %4 = add nuw i32 %.0, 2
+  %4 = add nuw i32 %.0, 2 
   %5 = mul i32 %.0, %4
   %6 = add nsw i32 %5, 1
   %7 = add nsw i32 %.01, %6
