@@ -1,0 +1,30 @@
+Printing analysis 'Scalar Evolution Analysis' for function 'foo':
+Classifying expressions for: @foo
+  %.0 = phi i32 [ 0, %2 ], [ %16, %5 ]
+  -->  {0,+,3}<nuw><nsw><%3> U: [0,2147483647) S: [0,2147483647) Exits: (3 * ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))))             LoopDispositions: { %3: Computable }
+  %6 = zext nneg i32 %.0 to i64
+  -->  {0,+,3}<nuw><nsw><%3> U: [0,2147483647) S: [0,2147483647) Exits: (3 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw>         LoopDispositions: { %3: Computable }
+  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  -->  {%0,+,12}<nw><%3> U: full-set S: full-set                Exits: ((12 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw> + %0)         LoopDispositions: { %3: Computable }
+  %8 = add nuw nsw i32 %.0, 1
+  -->  {1,+,3}<nuw><nsw><%3> U: [1,-2147483648) S: [1,-2147483648) Exits: (1 + (3 * ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1)))))               LoopDispositions: { %3: Computable }
+  %9 = zext nneg i32 %.0 to i64
+  -->  {0,+,3}<nuw><nsw><%3> U: [0,2147483647) S: [0,2147483647) Exits: (3 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw>         LoopDispositions: { %3: Computable }
+  %10 = getelementptr inbounds i32, ptr %0, i64 %9
+  -->  {%0,+,12}<nw><%3> U: full-set S: full-set                Exits: ((12 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw> + %0)         LoopDispositions: { %3: Computable }
+  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  -->  {(4 + %0),+,12}<nw><%3> U: full-set S: full-set          Exits: (4 + (12 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw> + %0)             LoopDispositions: { %3: Computable }
+  %12 = add nuw nsw i32 %.0, 2
+  -->  {2,+,3}<nuw><%3> U: [2,-2147483647) S: [2,-2147483647)           Exits: (2 + (3 * ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1)))))               LoopDispositions: { %3: Computable }
+  %13 = zext nneg i32 %.0 to i64
+  -->  {0,+,3}<nuw><nsw><%3> U: [0,2147483647) S: [0,2147483647) Exits: (3 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw>         LoopDispositions: { %3: Computable }
+  %14 = getelementptr inbounds i32, ptr %0, i64 %13
+  -->  {%0,+,12}<nw><%3> U: full-set S: full-set                Exits: ((12 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw> + %0)         LoopDispositions: { %3: Computable }
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  -->  {(8 + %0),+,12}<nw><%3> U: full-set S: full-set          Exits: (8 + (12 * (zext i32 ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1))) to i64))<nuw><nsw> + %0)             LoopDispositions: { %3: Computable }
+  %16 = add nuw nsw i32 %.0, 3
+  -->  {3,+,3}<nuw><%3> U: [3,-2147483646) S: [3,-2147483646)           Exits: (3 + (3 * ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1)))))               LoopDispositions: { %3: Computable }
+Determining loop execution counts for: @foo
+Loop %3: backedge-taken count is ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1)))
+Loop %3: constant max backedge-taken count is i32 715827882
+Loop %3: symbolic max backedge-taken count is ((((-1 * (1 umin (0 smax %1)))<nuw><nsw> + (0 smax %1)) /u 3) + (1 umin (0 smax %1)))
